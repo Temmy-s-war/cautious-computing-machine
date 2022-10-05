@@ -1,0 +1,31 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{%static 'css/home.css'%}">
+    <title></title>
+  </head>
+  <body>
+
+    {% for messages in messages %}
+
+    <div class="alert alert {{message.tags}} alert-dismissible fade show" role ="alert">
+      <strong>Message: </strong> {{message}}
+
+      <button type="button" class="close" data-dismiss="alert" aria-label = "close">
+        <span aria-hidden = "True">&times;</span>
+      </button>
+
+    </div>
+    {%end for%}
+
+    {% if user.is_authenticated %}
+    <h3>HELLO {{fname}}</h3>
+    <h4>You are successfuly logged in</h4>
+    <a href = "/signout" class="arg"><button type="button"  class="bton">SIGNOUT</button></a>
+    {%end if%}
+
+
+  </body>
+</html>
